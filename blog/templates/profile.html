@@ -1,0 +1,215 @@
+{% load tailwind_tags %}
+{% tailwind_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoyageLink - User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add any additional custom styles here */
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">VoyageLink</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Profile</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Bookings</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Settings</a>
+                <div class="relative">
+                    <img src="https://picsum.photos/800/400?random=1" alt="User Profile" class="w-10 h-10 rounded-full cursor-pointer" id="user-menu-toggle">
+                    <div id="user-menu" class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-lg hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Home</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Profile</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Bookings</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Settings</a>
+            <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="container mx-auto p-6 mt-20">
+        <!-- Profile Header -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+            <div class="flex items-center space-x-4">
+                <img src="https://picsum.photos/800/400?random=1" alt="User Profile Picture" class="w-24 h-24 rounded-full">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">John Doe</h2>
+                    <p class="text-gray-600">john.doe@example.com</p>
+                    <p class="text-gray-600">Member since January 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Navigation Tabs -->
+        <div class="mb-6">
+            <button class="tab-button text-blue-700 font-semibold border-b-2 border-blue-700 px-4 py-2" data-tab="profile">Profile</button>
+            <button class="tab-button text-gray-500 px-4 py-2" data-tab="bookings">Bookings</button>
+            <button class="tab-button text-gray-500 px-4 py-2" data-tab="settings">Settings</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="tab-content">
+            <!-- Profile Information -->
+            <div class="tab-content" data-content="profile">
+                <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+                    <h3 class="text-xl font-bold mb-4">Profile Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <label class="block text-gray-700">Full Name</label>
+                            <p class="text-gray-900">John Doe</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <label class="block text-gray-700">Email</label>
+                            <p class="text-gray-900">john.doe@example.com</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <label class="block text-gray-700">Phone Number</label>
+                            <p class="text-gray-900">+1234567890</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <label class="block text-gray-700">Address</label>
+                            <p class="text-gray-900">123 Main St, Anytown, USA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Booking History -->
+            <div class="tab-content hidden" data-content="bookings">
+                <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+                    <h3 class="text-xl font-bold mb-4">Booking History</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left table-auto">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2">Date</th>
+                                    <th class="px-4 py-2">Destination</th>
+                                    <th class="px-4 py-2">Status</th>
+                                    <th class="px-4 py-2">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2">2024-03-12</td>
+                                    <td class="px-4 py-2">Paris, France</td>
+                                    <td class="px-4 py-2 text-green-600">Completed</td>
+                                    <td class="px-4 py-2">$1200</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2">2024-05-15</td>
+                                    <td class="px-4 py-2">Rome, Italy</td>
+                                    <td class="px-4 py-2 text-yellow-600">Pending</td>
+                                    <td class="px-4 py-2">$1500</td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="px-4 py-2">2024-07-22</td>
+                                    <td class="px-4 py-2">Tokyo, Japan</td>
+                                    <td class="px-4 py-2 text-red-600">Cancelled</td>
+                                    <td class="px-4 py-2">$1800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit Profile -->
+            <div class="tab-content hidden" data-content="settings">
+                <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+                    <h3 class="text-xl font-bold mb-4">Edit Profile</h3>
+                    <form class="grid grid-cols-1 md:grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-gray-700">Full Name</label>
+                            <input type="text" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Email</label>
+                            <input type="email" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john.doe@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+1234567890">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Address</label>
+                            <input type="text" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="123 Main St, Anytown, USA">
+                        </div>
+                        <div class="col-span-2 mt-4">
+                            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-white shadow-md p-4 mt-6">
+            <p class="text-center text-gray-600">&copy; 2024 VoyageLink. All rights reserved.</p>
+        </footer>
+
+        <script>
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // User menu toggle
+            const userMenuToggle = document.getElementById('user-menu-toggle');
+            const userMenu = document.getElementById('user-menu');
+
+            userMenuToggle.addEventListener('click', () => {
+                userMenu.classList.toggle('hidden');
+            });
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Reset active state
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-blue-700', 'font-semibold');
+                        btn.classList.add('text-gray-500');
+                    });
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // Activate the clicked tab
+                    button.classList.remove('text-gray-500');
+                    button.classList.add('text-blue-700', 'font-semibold');
+                    const activeTab = button.getAttribute('data-tab');
+                    document.querySelector(`.tab-content[data-content="${activeTab}"]`).classList.remove('hidden');
+                });
+            });
+
+            // Default active tab
+            tabButtons[0].click(); // Simulate a click on the first tab to show it by default
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+{% load tailwind_tags %}
+{% tailwind_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - VoyageLink</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-purple-300 to-pink-300 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+        <h2 class="text-2xl font-bold text-center text-purple-700 mb-6">Login to VoyageLink</h2>
+
+        <form>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded" placeholder="Enter your email">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" required class="mt-1 block w-full p-2 border border-gray-300 rounded" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="w-full bg-purple-700 text-white px-4 py-2 rounded">Login</button>
+            </form>
+
+        <div class="mt-4 text-center">
+            <span class="text-gray-500">or</span>
+        </div>
+
+        <div class="mt-4">
+            <button class="w-full bg-blue-600 text-white px-4 py-2 rounded flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm.41 14.58V14h-1.41v2.58c-1.22-.07-2.26-.51-3.09-1.18l-.93.93c1.18 1.07 2.74 1.67 4.51 1.67c2.63 0 4.76-1.63 4.76-3.85c0-2.12-1.89-3.49-3.84-3.49c-1.8 0-2.64.9-2.64 2.36v.08h1.42c.06-.73.61-1.3 1.35-1.3c.75 0 1.31.4 1.31 1c0 1.14-1.48 1.12-1.48 2.56h-1.27v1.58h2.21c1.25 0 2.27-.65 2.27-1.88c0-1.26-1.05-2.08-2.12-2.08c-1.05 0-1.51.59-1.51 1.36z"/>
+                </svg>
+                <span>Login with Google</span>
+            </button>
+
+            <button class="w-full bg-blue-800 text-white px-4 py-2 rounded flex items-center justify-center space-x-2 mt-2">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.38 15.54a6.55 6.55 0 0 1-3.39 1.04a6.5 6.5 0 0 1-6.37-6.37c0-3.57 2.91-6.48 6.48-6.48a6.44 6.44 0 0 1 3.43.93l-1.23 1.24c-.83-.34-1.73-.51-2.68-.51a4.83 4.83 0 0 0-4.82 4.82c0 2.65 2.16 4.82 4.82 4.82c1.12 0 2.17-.4 3.01-1.06l1.24 1.23z"/>
+                </svg>
+                <span>Login with Facebook</span>
+            </button>
+        </div>
+
+        <div class="mt-4 text-center">
+            <p class="text-sm text-gray-600">Don't have an account? <a href= {% url "siginup" %} class="text-purple-700 font-semibold">Sign Up</a></p>
+        </div>
+    </div>
+
+</body>

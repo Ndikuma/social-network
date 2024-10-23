@@ -1,0 +1,96 @@
+{% load tailwind_tags %}
+{% tailwind_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews - VoyageLink</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center">
+
+    <!-- Header -->
+    <header class="w-full bg-purple-700 py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-2xl font-bold text-white">VoyageLink</h1>
+            <nav class="flex space-x-4">
+                <a href="#" class="text-white hover:underline">Home</a>
+                <a href="#" class="text-white hover:underline">About</a>
+                <a href="#" class="text-white hover:underline">Packages</a>
+                <a href="#" class="text-white hover:underline">Contact Us</a>
+                <a href="#" class="bg-yellow-500 text-purple-700 px-4 py-2 rounded">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- User Reviews Section -->
+    <main class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold text-purple-900 mb-6">User Reviews</h2>
+
+        <!-- Review Form -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h3 class="text-xl font-semibold mb-4">Leave a Review</h3>
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <label for="activity" class="block text-gray-700">Activity</label>
+                    <select id="activity" name="activity" class="w-full p-2 border border-gray-300 rounded mt-1">
+                        <option value="" disabled selected>Select an activity</option>
+                        <option value="1">Everest Base Camp</option>
+                        <option value="2">Markha Valley Trek</option>
+                        <option value="3">Inca Trail</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="rating" class="block text-gray-700">Rating</label>
+                    <select id="rating" name="rating" class="w-full p-2 border border-gray-300 rounded mt-1">
+                        <option value="" disabled selected>Select rating</option>
+                        <option value="5">5 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="2">2 stars</option>
+                        <option value="1">1 star</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="comment" class="block text-gray-700">Comment</label>
+                    <textarea id="comment" name="comment" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Write your review here..."></textarea>
+                </div>
+                <button type="submit" class="bg-purple-700 text-white px-4 py-2 rounded">Submit Review</button>
+            </form>
+        </div>
+
+        <!-- Existing Reviews -->
+        <h3 class="text-xl font-semibold mb-4">Recent Reviews</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold">Everest Base Camp</h4>
+                <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+                <p class="mt-2">"An unforgettable experience! The views were breathtaking!"</p>
+                <p class="mt-4 text-gray-500 text-sm">- Sarah M.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold">Markha Valley Trek</h4>
+                <p class="text-gray-600">⭐⭐⭐⭐</p>
+                <p class="mt-2">"Great trek with beautiful scenery and amazing guides!"</p>
+                <p class="mt-4 text-gray-500 text-sm">- James T.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold">Inca Trail</h4>
+                <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+                <p class="mt-2">"A challenging but rewarding trek. Highly recommend!"</p>
+                <p class="mt-4 text-gray-500 text-sm">- Emily R.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-purple-700 py-8 mt-auto">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 VoyageLink. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
